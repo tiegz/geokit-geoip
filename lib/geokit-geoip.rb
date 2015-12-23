@@ -6,7 +6,7 @@ require 'geoip'
 module Geokit
   module Geocoders
 
-    @@geoip_data_path = File.expand_path(File.join(File.dirname(__FILE__),'..','data','GeoLiteCity.dat')) 
+    @@geoip_data_path = File.expand_path(File.join(File.dirname(__FILE__),'..','data','GeoLiteCity.dat'))
     __define_accessors
 
     # Provide geocoding based upon an IP address.  The underlying web service is maxmind.com.
@@ -38,4 +38,3 @@ module Geokit
     end
   end
 end
-

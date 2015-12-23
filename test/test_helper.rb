@@ -1,4 +1,3 @@
-require 'test/unit'
-require File.dirname(__FILE__) + '/../lib/geokit-geoip'
+require_relative '../lib/geokit-geoip'
 require 'shoulda'
-require 'ruby-debug'
+require 'minitest/autorun'

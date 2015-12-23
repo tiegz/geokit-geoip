@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
-class TestGeokitGeoip < Test::Unit::TestCase
+class TestGeokitGeoip < MiniTest::Test
 
   context "GeoIpCityGeocoder" do
     setup do
@@ -42,6 +42,24 @@ class TestGeokitGeoip < Test::Unit::TestCase
         assert (40..41).include?(loc.lat)
         assert (-74..-73).include?(loc.lng)
         assert_equal 5, loc.zip.size
+      end
+    end
+
+    context "with a good ip that returns ISO-8859-I" do
+      setup { @ip = '66.203.219.253' }
+      should "be successful" do
+        result = @geocoder.geocode(@ip)
+        assert result.success?, result.city
+      end
+      should "set the right attributes (as UTF8)" do
+        loc = @geocoder.geocode(@ip)
+        puts loc.city
+        assert_equal "Linière", loc.city
+        assert_equal "QC", loc.state
+        assert_equal "CA", loc.country_code
+        assert (46..47).include?(loc.lat)
+        assert (-71..-70).include?(loc.lng)
+        assert_equal 0, loc.zip.size
       end
     end
   end

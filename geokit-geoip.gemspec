@@ -19,7 +19,8 @@ Gem::Specification.new do |s|
   s.test_files = Dir.glob("test/**/*")
 
   s.add_dependency 'geoip'
-  s.add_dependency 'geokit', '>= 1.5.0' # What we're using on kickstarter at the moment
+  s.add_dependency 'geokit', '>= 1.10.0' # What we're using on kickstarter at the moment
   s.add_development_dependency 'rake'
   s.add_development_dependency 'shoulda'
+  s.add_development_dependency 'minitest'
 end
